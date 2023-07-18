@@ -1,0 +1,514 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-family: Arial, sans-serif;
+
+    
+    
+  }
+
+
+  nav {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .mainMenu {
+    display: flex;
+    list-style: none;
+  }
+  nav .mainMenu li a {
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    transition: 0.2s ease;
+  }
+  nav .mainMenu li a:hover {
+    background: rgb(85, 154, 245);
+  }
+  nav .openMenu {
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+  }
+  nav .mainMenu .closeMenu,
+  .icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+  }
+  nav .logo {
+    margin: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0c0c0c;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  .head{
+    background-image: url('../image/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .centered{
+
+    color: white;
+    
+  }
+  .topc{
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: black;
+    
+  }
+  .cardtitle{
+    color: white;
+    padding-top: 25px;
+  }
+  .container_about{
+    margin-top: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(27, 27, 27)(1, 51, 51);
+    
+  }
+  .break{
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+.card{
+  background: white;
+  width: 320px;
+  margin: 20px;
+  margin-top: 30px;
+}
+.card-image{
+  height: 250px;
+  margin-bottom: 15px;
+  background-size: cover;
+}
+.card-image img{
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+.card h2{
+  padding: 10px;
+}
+.card p{
+  padding: 10px;
+}
+.card a{
+  background-color: rgb(85, 154, 245);
+  color: white;
+  padding: 5px 5px;
+  display: block;
+  text-align: center;
+  margin: 20px 50px;
+  text-decoration: none;
+}
+
+.card a:hover{
+ background-color: red;
+}
+.card:hover{
+  background-color: rgb(54, 54, 54);
+  color: white;
+  transform: scale(1.05);
+  transition: all 0.5s ease;
+}
+.containerf{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+
+
+/* about us section*/
+.heading{
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px auto;
+}
+.heading h1{
+  font-size: 50px;
+  color: #000;
+  margin-bottom: 25px;
+  position: relative;
+}
+.heading h1::after{
+  content: "";
+  position:absolute;
+  width: 100%;
+  height: 4px;
+  display: block;
+  margin: 0 auto;
+  background-color: #4caf50;
+}
+
+.heading p{
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.container{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.about{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.about-image{
+  flex: 1;
+  margin-right: 40px;
+  overflow: hidden;
+}
+
+.about-image img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+}
+
+.about-image:hover img{
+  transform:scale(1.2);
+}
+
+.about-content{
+  flex: 1;
+}
+
+.about-content h2{
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #333;
+}
+.about-content p{
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.about-content .read-more{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: red;
+  color: #fff;
+  font-size: 19px;
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+
+.about-content .read-more:hover{
+  background-color: #3e8e41;
+}
+
+
+
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: rgb(85, 154, 245);
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+.plan{
+  background-color: rgb(85, 154, 245);
+  text-decoration: none;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+ 
+}
+.plan a{
+  text-decoration: none;
+  color: white;
+}
+.plan:hover{
+  background-color: red;
+  transform: scale(1.2);
+  transition: all 0.5s ease;
+}
+.testimonials{
+  padding: 40px 0;
+  background: #1b1b1b;
+  color: white;
+  text-align: center;
+}
+.name{
+  color: black;
+}
+.testimonials p{
+  padding: 40px 0;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.inner{
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 20px;
+}
+
+.border{
+  width: 160px;
+  height: 5px;
+  background: rgb(85, 154, 245);
+  margin: 26px auto;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: centefr;
+}
+.col{
+  flex: 33.33%;
+  max-width: 33.33%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.testimonial{
+  background: #fff;
+  padding: 30px;
+}
+.testimonial img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.name{
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 20px 0;
+}
+.stars{
+  color: rgb(85, 154, 245);
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+  @media (max-width: 800px) {
+    nav .mainMenu {
+      height: 100vh;
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      left: 0px;
+      z-index: 10;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgb(0, 0, 0);
+      transition: top 0.5s ease 0s;
+      display: none;
+    }
+    nav .mainMenu .closeMenu {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    nav .openMenu {
+      display: block;
+    }
+    nav .mainMenu li a:hover {
+      background: none;
+      color: rgb(255, 123, 0);
+    }
+    .icons i {
+      display: inline-block;
+      padding: 12px;
+    }
+    .head{
+      background-image: url(image/background.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .centered{
+      position:absolute;
+    }
+    .footer-col{
+      width: 50%;
+      margin-bottom: 30px;
+  
+
+    
+    }
+    .col{
+      flex: 100%;
+      max-width: 80%;
+    }
+
+/*about us section*/
+    .heading{
+      padding: 0px 20px;
+  }
+  .heading h1{
+      font-size: 36px;
+  }
+  .heading p{
+      font-size: 17px;
+      margin-bottom: 0px;
+  }
+  .container{
+      padding: 0px;
+  }
+  .about{
+      padding: 20px;
+      flex-direction: column;
+  }
+  .about-image{
+      margin-right: 0px;
+      margin-bottom: 20px;
+  }
+  .about-content p{
+      padding: 0px;
+      font-stretch: 16px;
+  }
+  .about-content .read-more{
+      font-size: 16px;
+  }
+   
+  }
+
+  @media(max-width: 574px){
+    .footer-col{
+      width: 100%;
+  }
+  .col{
+    flex: 100%;
+    max-width: 100%;
+  }
+}
