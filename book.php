@@ -100,48 +100,47 @@ $mail = $_GET['mail'];
     </div></boody>
 </html>
 <?php
+if(isset($_POST['submit'])){
+    $fname = $_POST['fname'];
+    $email = $_POST['email'];
+    $date = $_POST['date'];
+    $phone = $_POST['phone'];
+    $activity = $_POST['s-select'];
+    $message = $_POST['Message'];
 
-    if(isset($_POST['submit'])){
-    echo    $fname = $_POST['fname'];
-    echo $email = $_POST['email'];
-    echo $phone = $_POST['phone'];
-    echo $activity= $_POST['s-select'];
-    echo $message = $_POST['Message'];
-
+    // Fetch activity details from the activities table
     $sql = "SELECT * FROM activities WHERE activity_id = $activity";
+    $res = mysqli_query($conn, $sql);
 
-$res = mysqli_query($conn, $sql);
+    if($res == true){
+        $count = mysqli_num_rows($res);
 
-if($res == true){
-    $count = mysqli_num_rows($res);
-
-    if($count==1){
-        $rows = mysqli_fetch_assoc($res);
-        echo $activity_name = $rows['activity_name'];
-        echo $price= $rows['price'];
+        if($count == 1){
+            $rows = mysqli_fetch_assoc($res);
+            $activity_name = $rows['activity_name'];
+            $price = $rows['price'];
+        }
     }
-}
 
+    // Insert data into the booking table
+    $sql2 = "INSERT INTO booking SET 
+        u_name = '$fname',
+        booking_date = '$date',
+        u_email = '$email',
+        u_phone = '$phone',
+        u_activity = '$activity',
+        u_activity_name = '$activity_name',
+        u_price = '$price',
+        Message = '$message'";
 
-    
-    // INSERT IN SQL
-    /* $sql = "INSERT INTO booking SET 
-    u_name = '$fname',
-    admin_name = '$uname',
-    admin_pass = '$pass'
-    ";
+    // Execute the insert query
+    $res2 = mysqli_query($conn, $sql2) or die(mysqli_error($conn));
 
-    // db conn
-    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    if($res == TRUE){
-        $_SESSION['add'] = "Admin Added";
-        header("location:".siteurl.'backend/admins.php');
+    if($res2 == TRUE){
+        $_SESSION['book'] = "booked";
     }
     else{
-        $_SESSION['add'] = "Failed to add";
-        header("location:".siteurl.'backend/add-admins.php');
+        $_SESSION['book'] = "Failed to book";
     }
-
-    */
-    }
+}
 ?>
