@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 07, 2023 at 11:41 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Host: localhost
+-- Generation Time: Jul 21, 2023 at 03:40 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,15 +76,21 @@ INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_pass`, `fullname`) VALUES
 
 CREATE TABLE `booking` (
   `booking_id` int(11) NOT NULL,
-  `activity_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
   `booking_date` date NOT NULL,
   `u_name` varchar(255) NOT NULL,
   `u_email` varchar(255) NOT NULL,
   `u_phone` int(10) NOT NULL,
   `u_activity` varchar(255) NOT NULL,
-  `Message` varchar(1000) NOT NULL
+  `Message` varchar(1000) NOT NULL,
+  `u_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `booking_date`, `u_name`, `u_email`, `u_phone`, `u_activity`, `Message`, `u_price`) VALUES
+(1, '2023-07-28', 'Yujiro Hanma', 'yujiro@gmail.com', 456456, '7', 'sdgjiosdug', 2500);
 
 -- --------------------------------------------------------
 
@@ -127,9 +133,7 @@ ALTER TABLE `admins`
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
-  ADD PRIMARY KEY (`booking_id`),
-  ADD KEY `activity_id` (`activity_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`booking_id`);
 
 --
 -- Indexes for table `users`
@@ -157,24 +161,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`activity_id`) REFERENCES `activities` (`activity_id`),
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
