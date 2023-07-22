@@ -1,5 +1,7 @@
  <?php include('config/constants.php')?>
  <?php include('extend/navbar.php')?>
+
+ 
      <div class="head">
       
         <div class="centered">

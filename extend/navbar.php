@@ -26,8 +26,9 @@
                 
                 <?php
                              if(isset($_SESSION['ulogin'])){
-                                echo "<a href='./extend/profile.php'>Profile</a>";
-                                echo"<a href='./extend/ubook.php'>Bookings</a>";
+                                echo "<a href='./extend/profile.php'>Edit Profile</a>";
+                                echo"<a href=''>Change Password</a>";
+                                echo "<a href='#'>Booking History</a> ";
                                 echo "<a href='./extend/ulogout.php'>Logout</a> ";
                               }
                               else{
