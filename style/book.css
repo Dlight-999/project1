@@ -22,6 +22,11 @@ a{
     text-decoration: none;
     color: #115035;
 }
+.cancel{
+    color: #fff;
+    text-align: center;
+
+}
 
 /* Other CSS styles */
 

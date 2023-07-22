@@ -82,10 +82,17 @@ if (isset($_GET['mail'])) {
                 </div>
 
                 <div class="bf-row">
-                    <div class="bf-col-3">
+                    <div class="bf-col-12">
                         <input type="submit" value="Submit" name="submit">
                     </div>
+                    </div>
+                    <div class="bf-row">
+                    <div class="bf-col-12">
+                    <a href="./index.php" class="cancel">
+                        <input type="button" value="Cancel" name="cancel">
+                    </a>
                 </div>
+                    </div>
             </form>
 
             <div class="bf-footer">
