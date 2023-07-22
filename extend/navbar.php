@@ -18,7 +18,7 @@
         <div class="openMenu"><i class="fa-sharp fa-solid fa-bars"></i></div>
         <ul class="mainMenu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Our Services</a></li>
+            <li><a href="./service.php">Our Services</a></li>
             <li><a href="#">About Us</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Account</a>
@@ -26,12 +26,12 @@
                 
                 <?php
                              if(isset($_SESSION['ulogin'])){
-                                echo "<a href='#'>Profile</a>";
-                                echo"<a href='ubook.php'>Bookings</a>";
-                                echo "<a href='ulogout.php'>Logout</a> ";
+                                echo "<a href='./extend/profile.php'>Profile</a>";
+                                echo"<a href='./extend/ubook.php'>Bookings</a>";
+                                echo "<a href='./extend/ulogout.php'>Logout</a> ";
                               }
                               else{
-                                echo "<a href='login.php'></a>";
+                                echo "<a href='./extend/login.php'>Login</a>";
                               }
                 ?>
       </div>

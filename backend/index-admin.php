@@ -54,7 +54,7 @@
               $res = mysqli_query($conn, $sql_booking);
               if($res == TRUE){
                 echo $count = mysqli_num_rows($res);
-              }            
+              }
             ?>
             </span>
           </div>

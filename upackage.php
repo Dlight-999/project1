@@ -28,7 +28,7 @@ if(isset($_SESSION['umail'])){
        
       <div class="card">
         <div class="card-image"> <img src="<?php echo siteurl; ?>image/category/<?php echo $image_name?>"  alt="" style="height: 100%; width: 100%; object-fit: cover;"> </div>
-        <h2><?php echo $activity_name."-Rs".$price?></h2>
+        <h2><?php echo $activity_name." - Rs ".$price?></h2>
         <p>
         <?php echo $activity_detail?>
         </p>

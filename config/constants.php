@@ -9,6 +9,6 @@
     define('db_name','project1');
 
 
-    $conn = mysqli_connect('localhost','root','') or die(mysqli_error($conn));
+    $conn = mysqli_connect(LOCALHOST,db_uname,db_pass, db_name) or die(mysqli_error($conn));
     $db_select = mysqli_select_db($conn,'project1');
 ?>
