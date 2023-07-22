@@ -23,9 +23,17 @@
             <li class="dropdown">
                 <a href="#" class="dropbtn">Account</a>
                 <div class="dropdown-content">
-                <a href="#">Profile</a>
-                <a href="extend/login.php">Login</a>
-                <a href="extend/ulogout.php">Logout</a>
+                
+                <?php
+                             if(isset($_SESSION['ulogin'])){
+                                echo "<a href='#'>Profile</a>";
+                                echo"<a href='ubook.php'>Bookings</a>";
+                                echo "<a href='ulogout.php'>Logout</a> ";
+                              }
+                              else{
+                                echo "<a href='login.php'></a>";
+                              }
+                ?>
       </div>
     </li>            <div class="closeMenu"><i class="fa fa-times"></i></div>
         </ul>
