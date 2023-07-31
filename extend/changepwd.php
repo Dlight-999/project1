@@ -13,7 +13,7 @@
 <div class="container">
         <h2>Change Password</h2>
         <?php
-        if(isset($_SESSION['umail'])){
+        if(isset($_SESSION['pwd-not-match'])){
         echo $_SESSION['pwd-not-match'];
         unset($_SESSION['pwd-not-match']);
       }
@@ -23,8 +23,8 @@
       }
       ?> 
       <?php 
-    if(isset($_GET['admin_id'])){
-        $admin_id = $_GET['admin_id'];
+    if(isset($_GET['mail'])){
+        $mail = $_GET['mail'];
     }
 ?>
      
@@ -42,7 +42,7 @@
                 <label for="cpass2">Confirm Password:
                 <input type="password" name="cpass2" id="cpass2" >
             </div>
-            <input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
+            <input type="hidden" name="mail" value="<?php echo $mail; ?>">
                 <input type="submit" value="Change" name="submit" id="Change"  class="btn-primary">
         </form>
         
@@ -52,39 +52,35 @@ if (isset($_POST['submit'])) {
     $pass1 = $_POST['pass1'];
     $pass2 = $_POST['pass2'];
     $cpass2 = $_POST['cpass2'];
-    $admin_id = $_POST['admin_id'];
+    $mail = $_POST['mail'];
 
 
 
-    $sql = "SELECT * FROM admins WHERE admin_id=$admin_id AND admin_pass='$pass1'";
+    $sql = "SELECT * FROM users WHERE email='$mail' AND password='$pass1'";
     $res = mysqli_query($conn,$sql);
     if($res==true){
         $count = mysqli_num_rows($res);
 
         if($count==1){
             if($pass2==$cpass2){
-                $sql2 = "UPDATE admins SET admin_pass='$pass2' where admin_id=$admin_id";
+                $sql2 = "UPDATE users SET password ='$pass2' where email='$mail'";
                 $res2 = mysqli_query($conn,$sql2);
 
                 if($res2==true){
                     $_SESSION['change']="Password Changed Sucessfully";
-                header('location:'.siteurl.'backend/admins.php');
+                header('location:'.siteurl.'extend/login.php');
                 }
                 else{
                     $_SESSION['change']="Failed to change password";
-                header('location:'.siteurl.'backend/update-password.php');
+                header('location:'.siteurl.'extend/update-password.php');
                 }
 
             }
             else{
                 $_SESSION['pwd-not-match']="Password doesnt match";
-                header('location:'.siteurl.'backend/update-password.php');
+                header('location:'.siteurl.'extend/changepwd.php');
             }
 
-        }
-        else{
-            $_SESSION['user-not-found']="User not Found";
-            header('location:'.siteurl.'backend/update-password.php');
         }
     }
 
