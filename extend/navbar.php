@@ -26,15 +26,17 @@
                 
                 <?php
                              if(isset($_SESSION['ulogin'])){
-                                echo "<a href='./extend/profile.php'>Edit Profile</a>";
-                                echo"<a href=''>Change Password</a>";
-                                echo "<a href='#'>Booking History</a> ";
+                              $mail = $_SESSION['umail'];
+                                echo "<a href='./extend/profile.php?mail=$mail'>Edit Profile</a>";
+                                echo"<a href='./extend/changepwd.php?mail=$mail'>Change Password</a>";
+                                echo "<a href='./extend/history.php??mail=$mail'>Booking History</a> ";
                                 echo "<a href='./extend/ulogout.php'>Logout</a> ";
                               }
                               else{
                                 echo "<a href='./extend/login.php'>Login</a>";
                               }
                 ?>
+                
       </div>
     </li>            <div class="closeMenu"><i class="fa fa-times"></i></div>
         </ul>

@@ -2,7 +2,7 @@
 <?php include '../config/constants.php'?>
 <main class="main-container">
 <div class="container">
-        <h2>Update Admin</h2>
+        <h2>Update Password</h2>
         <?php
         if(isset($_SESSION['pwd-not-match'])){
         echo $_SESSION['pwd-not-match'];
