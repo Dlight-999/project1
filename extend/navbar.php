@@ -17,7 +17,7 @@
         <div class="logo"><h1>Adventure Pokhara</h1></div>
         <div class="openMenu"><i class="fa-sharp fa-solid fa-bars"></i></div>
         <ul class="mainMenu">
-            <li><a href="#">Home</a></li>
+            <li><a href="../index.php">Home</a></li>
             <li><a href="./service.php">Our Services</a></li>
             <li><a href="#">About Us</a></li>
             <li class="dropdown">
@@ -29,7 +29,7 @@
                               $mail = $_SESSION['umail'];
                                 echo "<a href='./extend/profile.php?mail=$mail'>Edit Profile</a>";
                                 echo"<a href='./extend/changepwd.php?mail=$mail'>Change Password</a>";
-                                echo "<a href='./extend/history.php??mail=$mail'>Booking History</a> ";
+                                echo "<a href='./extend/history.php?mail=$mail'>Booking History</a> ";
                                 echo "<a href='./extend/ulogout.php'>Logout</a> ";
                               }
                               else{
