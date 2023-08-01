@@ -30,7 +30,7 @@
                             }
                             ?></h6>
                             <h6>Not Registered Yet?</h6>
-                            <a href="signup.html" class="toggle">signup</a>
+                            <a href="../extend/signup.php" class="toggle">signup</a>
                         </div>
 
                         <div class="actual-form">
@@ -86,9 +86,8 @@
               <div class="text-slider">
                 <div class="text-wrap">
                   <div class="text-group">
-                    <h2>Create your own courses</h2>
-                    <h2>Customize as you like</h2>
-                    <h2>Invite students to your class</h2>
+                    <h2>Login To Adventure Pokhara</h2>
+                    
                   </div>
                 </div>
   

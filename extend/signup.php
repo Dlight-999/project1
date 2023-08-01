@@ -19,7 +19,7 @@
                 <div class="heading">
                   <h2>Get Started</h2>
                   <h6>Already have an account?</h6>
-                  <a href="login.html" class="toggle">Sign in</a><br>
+                  <a href="./login.php" class="toggle">Sign in</a><br>
                   <h6>
                     <?php
                       if(isset($_SESSION['created'])){
@@ -59,6 +59,17 @@
                       required
                     />
                     <label>Email</label>
+                  </div>
+                  <div class="input-wrap">
+                    <input
+                      type="number"
+                      class="input-field"
+                      autocomplete="off"
+                      name="phone"
+                      id="phone"
+                      required
+                    />
+                    <label>Phone No.</label>
                   </div>
   
                   <div class="input-wrap">
@@ -107,9 +118,7 @@
               <div class="text-slider">
                 <div class="text-wrap">
                   <div class="text-group">
-                    <h2>Create your own courses</h2>
-                    <h2>Customize as you like</h2>
-                    <h2>Invite students to your class</h2>
+                    <h2>Signup To Adventure Pokhara</h2>
                   </div>
                 </div>
   
@@ -128,6 +137,7 @@
 if (isset($_POST['submit'])) {
     $uname = $_POST['uname'];
     $mail = $_POST['mail'];
+    $phone = $_POST['phone'];
     $pass = $_POST['pass'];
     $cpass = $_POST['cpass'];
 
@@ -137,6 +147,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO users SET 
         username = '$uname',
         email = '$mail',
+        phone = '$phone',
         password = '$pass'";
 
         // db conn
