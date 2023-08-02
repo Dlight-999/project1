@@ -5,7 +5,7 @@
 <style>
 
 .main-container{
-    height: 250px;
+    height: 50%;
 }
 </style>
 

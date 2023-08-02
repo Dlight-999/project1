@@ -6,7 +6,7 @@
 <style>
 
 .main-container{
-    height: 250px;
+    height: 50%;
 }
 </style>
 <?php
@@ -27,6 +27,7 @@ if(isset($_GET['mail'])){
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Date</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,6 +49,7 @@ $sql = "SELECT * FROM booking WHERE u_email='$mail'";
         $email=$rows['u_email'];
         $phone=$rows['u_phone'];
         $date = $rows['booking_date'];
+        $status = $rows['status'];
 
         ?>
         <tr>
@@ -57,7 +59,9 @@ $sql = "SELECT * FROM booking WHERE u_email='$mail'";
         <td><?php echo $email ?></td>
         <td><?php echo $phone ?></td>
         <td><?php echo $date ?></td>
-        <td><a href="<?php echo siteurl;?>backend/delete-admin.php?admin_id=<?php echo $admin_id;?>" class="btn-secondary"> Delete admin</a>
+        <td><?php echo $status ?></td>
+        
+        <td><a href="<?php echo siteurl;?>extend/cancel.php?mail=<?php echo $mail;?>&id=<?php echo $id?>" class="btn-secondary">Cancel</a>
         <a href="<?php echo siteurl;?>backend/update-admin.php?admin_id=<?php echo $admin_id;?>" class="btn-primary">Upadte Admin</a>
         <a href="<?php echo siteurl;?>backend/update-password.php?admin_id=<?php echo $admin_id;?>" class="btn-primary">Change password</a></td>
         
