@@ -62,7 +62,7 @@ $sql = "SELECT * FROM booking WHERE u_email='$mail'";
         <td><?php echo $status ?></td>
         
         <td><a href="<?php echo siteurl;?>extend/cancel.php?mail=<?php echo $mail;?>&id=<?php echo $id?>" class="btn-secondary">Cancel</a>
-        <a href="<?php echo siteurl;?>backend/update-admin.php?admin_id=<?php echo $admin_id;?>" class="btn-primary">Upadte Admin</a>
+        <a href="<?php echo siteurl;?>extend/active.php?mail=<?php echo $mail;?>&id=<?php echo $id?>" class="btn-primary">Active</a>
         <a href="<?php echo siteurl;?>backend/update-password.php?admin_id=<?php echo $admin_id;?>" class="btn-primary">Change password</a></td>
         
       </tr>

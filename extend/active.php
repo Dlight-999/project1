@@ -9,16 +9,16 @@ if(isset($_GET['mail'])){
 }
 
        
-                $sql = "UPDATE booking SET status ='Cancled' where u_email='$mail' AND booking_id='$id'";
+                $sql = "UPDATE booking SET status ='Active' where u_email='$mail' AND booking_id='$id'";
                 $res = mysqli_query($conn,$sql);
 
                 if($res==true){
-                    $_SESSION['statuschanged']="Cancled";
+                    $_SESSION['statuschanged']="Active";
                     header('location: ' . siteurl . 'extend/history.php?mail='.$mail);
 
                 }
                 else{
-                    $_SESSION['statuschanged']="Failed to cancel";
+                    $_SESSION['statuschanged']="Failed to activate";
                     header('location: ' . siteurl . 'extend/history.php?mail='.$mail);
                 }
 
