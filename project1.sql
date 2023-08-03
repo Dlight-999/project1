@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2023 at 03:40 PM
+-- Generation Time: Aug 03, 2023 at 05:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -65,8 +65,9 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_pass`, `fullname`) VALUES
 (8, 'aaryak_2059', 'aaryak123', 'Aaryak Pradhan'),
-(11, 'Light', 'root', 'Yagami Light'),
-(17, 'new1', 'password', 'new1');
+(11, 'Light', 'toor', 'Yagami Light'),
+(17, 'new1', 'password', 'new1'),
+(18, 'baki', '$2y$10$AeP5Ia8ToKICJWtleKSCPex/6r7SLSRbWx1M3WfRi6732YLMRn.BG', 'testtest');
 
 -- --------------------------------------------------------
 
@@ -82,15 +83,17 @@ CREATE TABLE `booking` (
   `u_phone` int(10) NOT NULL,
   `u_activity` varchar(255) NOT NULL,
   `Message` varchar(1000) NOT NULL,
-  `u_price` int(11) NOT NULL
+  `u_price` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `canceledby` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`booking_id`, `booking_date`, `u_name`, `u_email`, `u_phone`, `u_activity`, `Message`, `u_price`) VALUES
-(1, '2023-07-28', 'Yujiro Hanma', 'yujiro@gmail.com', 456456, '7', 'sdgjiosdug', 2500);
+INSERT INTO `booking` (`booking_id`, `booking_date`, `u_name`, `u_email`, `u_phone`, `u_activity`, `Message`, `u_price`, `status`, `canceledby`) VALUES
+(2, '2023-08-25', 'Baki Hanma', 'baki@gmail.com', 234893247, 'Bungee', 'sdkajfkasdhfjks', 2500, 'Cancled', '');
 
 -- --------------------------------------------------------
 
@@ -111,7 +114,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `phone`) VALUES
-(1, 'Yujiro Hanma', 'yujiro', 'yujiro@gmail.com', '9192631770');
+(1, 'Baki Hanma', 'hanma', 'baki@gmail.com', '9192631770');
 
 --
 -- Indexes for dumped tables
@@ -155,13 +158,13 @@ ALTER TABLE `activities`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

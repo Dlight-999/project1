@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign in and signup form</title>
-    <link rel="stylesheet" href="../style//regstyle.css">
+    <link rel="stylesheet" href="../style/regstyle.css">
 </head>
 <body>
     <main>
@@ -48,7 +48,7 @@
                     />
                     <label>Name</label>
                   </div>
-  
+                  
                   <div class="input-wrap">
                     <input
                       type="email"
