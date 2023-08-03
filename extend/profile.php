@@ -8,7 +8,7 @@
 <style>
 
 .main-container{
-    height: 50%;
+    height: 60%;
 }
 </style>
 
@@ -42,7 +42,7 @@ if($res == true){
 }
 ?>
      
-        <form method="post" action="">
+        <form method="post" action="" onsubmit="return confirmUpdate()">
             <div class="form-group">
                 <label for="uname">Usermame:
                 <input type="text" name="uname" id="uname" value="<?php echo $uname?>">
@@ -59,6 +59,11 @@ if($res == true){
                 <input type="submit" value="Update" name="submit" id="update" class="btn-primary">
         </form>
         
+        <script>
+            function confirmUpdate() {
+                return confirm('Are you sure you want to update this user?');
+            }
+        </script>
               
         <?php
 if (isset($_POST['submit'])) {
