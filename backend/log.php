@@ -66,6 +66,7 @@
 </head>
 <body>
     <div class="container">
+    <div class="container">
         <h2>Admin Dashboard</h2>
         <?php
         if(isset($_SESSION['login'])){
@@ -96,26 +97,31 @@
         $uname = $_POST['login-uname'];
         $password = $_POST['login-password'];
 
-        $sql = "SELECT * FROM admins WHERE admin_name='$uname' AND admin_pass='$password'";
+        $sql = "SELECT * FROM admins WHERE admin_name='$uname'";
 
         $res = mysqli_query($conn, $sql);
 
         $count = mysqli_num_rows($res);
 
         if($count==1){
-            $_SESSION['login']="Logged in Sucessfully";
-            $_SESSION['user']= $uname;
-            header('location:'.siteurl.'backend/index-admin.php');
-
+            $row = mysqli_fetch_assoc($res);
+            $hashed_password = $row['admin_pass'];
+            if (password_verify($password, $hashed_password)) {
+                $_SESSION['login']="Logged in Successfully";
+                $_SESSION['user']= $uname;
+                header('location:'.siteurl.'backend/index-admin.php');
+            } else {
+                $_SESSION['login']="Username or Password did not match";
+                header('location:'.siteurl.'backend/log.php');
+            }
         }
         else{
-            $_SESSION['login']="Username or Password didnot match";
+            $_SESSION['login']="Username or Password did not match";
             header('location:'.siteurl.'backend/log.php');
-
         }
-        
     }
 ?>
+
 
 </body>
 </html>

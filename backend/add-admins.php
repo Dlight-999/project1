@@ -1,29 +1,34 @@
 <?php include "nav.php" ?>
 <main class="main-container">
-<div class="container">
+    <div class="container">
         <h2>Add Admins</h2>
         <?php 
-      if(isset($_SESSION['add'])){
-        echo $_SESSION['add'];
-        unset($_SESSION['add']);
-      }  ?>
-      
+        if(isset($_SESSION['add'])){
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+        ?>
+
         <form method="post" action="" onsubmit="return validateForm()">
             <div class="form-group">
-                <label for="uname">Usermame:
-                <input type="text" name="uname" id="uname" >
+                <label for="uname">Username:
+                    <input type="text" name="uname" id="uname" required>
+                </label>
             </div>
             <div class="form-group">
                 <label for="fname">Fullname:
-                <input type="text" name="fname" id="fname" >
+                    <input type="text" name="fname" id="fname" required>
+                </label>
             </div>
             <div class="form-group">
                 <label for="pass1">Password:
-                <input type="password" name="pass1" id="pass1" >
+                    <input type="password" name="pass1" id="pass1" required>
+                </label>
             </div>
             <div class="form-group">
                 <label for="pass2">Confirm Password:
-                <input type="password" name="pass2" id="pass2" >
+                    <input type="password" name="pass2" id="pass2" required>
+                </label>
             </div>
 
             <input type="submit" name="submit" value="Add package">
@@ -48,7 +53,7 @@
                 }
 
                 // Validate password
-                if (pass1 !== pass2) {ufyo8
+                if (pass1 !== pass2) {
                     alert("Passwords do not match");
                     return false;
                 }
@@ -59,36 +64,40 @@
 
        
         <?php
-    if(isset($_POST['submit'])){
-        $fname = $_POST['fname'];
-    $uname = $_POST['uname'];
-    $pass = $_POST['pass1'];
-    $cpass = $_POST['pass2'];
+        if(isset($_POST['submit'])){
+            $fname = $_POST['fname'];
+            $uname = $_POST['uname'];
+            $pass = $_POST['pass1'];
+            $cpass = $_POST['pass2'];
 
-    // INSERT IN SQL
-    $sql = "INSERT INTO admins SET 
-    fullname = '$fname',
-    admin_name = '$uname',
-    admin_pass = '$pass'
-    ";
+            // Check if the passwords match
+            if ($pass !== $cpass) {
+                $_SESSION['add'] = "Passwords do not match";
+                header("location:".siteurl.'backend/add-admins.php');
+                exit();
+            }
 
-    // db conn
-    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    if($res == TRUE){
-        $_SESSION['add'] = "Admin Added";
-        header("location:".siteurl.'backend/admins.php');
-    }
-    else{
-        $_SESSION['add'] = "Failed to add";
-        header("location:".siteurl.'backend/add-admins.php');
-    }
-    }
-?>
+            // Encrypt the password
+            $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
+            // INSERT IN SQL
+            $sql = "INSERT INTO admins (fullname, admin_name, admin_pass) VALUES ('$fname', '$uname', '$hashed_password')";
 
-
+            // db conn
+            $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            if($res == TRUE){
+                $_SESSION['add'] = "Admin Added";
+                header("location:".siteurl.'backend/admins.php');
+                exit();
+            }
+            else{
+                $_SESSION['add'] = "Failed to add";
+                header("location:".siteurl.'backend/add-admins.php');
+                exit();
+            }
+        }
+        ?>
     </div>
 </main>
-
 
 <?php include "footer.php" ?>
