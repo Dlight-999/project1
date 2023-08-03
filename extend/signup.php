@@ -134,42 +134,42 @@
       </main>
 
       <?php
-if (isset($_POST['submit'])) {
-    $uname = $_POST['uname'];
-    $mail = $_POST['mail'];
-    $phone = $_POST['phone'];
-    $pass = $_POST['pass'];
-    $cpass = $_POST['cpass'];
+    if (isset($_POST['submit'])) {
+        $uname = $_POST['uname'];
+        $mail = $_POST['mail'];
+        $phone = $_POST['phone'];
+        $pass = $_POST['pass'];
+        $cpass = $_POST['cpass'];
 
-    // Check if password and confirm password match
-    if ($pass == $cpass) {
-        // INSERT IN SQL
-        $sql = "INSERT INTO users SET 
-        username = '$uname',
-        email = '$mail',
-        phone = '$phone',
-        password = '$pass'";
+        // Check if password and confirm password match
+        if ($pass == $cpass) {
+            // Hash the password
+            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
 
-        // db conn
-        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        if ($res == TRUE) {
-            $_SESSION['created'] = "User Created";
-            header("location:" . siteurl . 'extend/login.php');
+            // INSERT IN SQL
+            $sql = "INSERT INTO users SET 
+            username = '$uname',
+            email = '$mail',
+            phone = '$phone',
+            password = '$hashedPass'";
+
+            // db conn
+            $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+            if ($res == TRUE) {
+                $_SESSION['created'] = "User Created";
+                header("location:" . siteurl . 'extend/login.php');
+            } else {
+                $_SESSION['created'] = "Try Again";
+                header("location:" . siteurl . 'extend/signup.php');
+            }
         } else {
-            $_SESSION['created'] = "Try Again";
+            $_SESSION['failed'] = "Password and confirm password do not match";
             header("location:" . siteurl . 'extend/signup.php');
         }
-    } else {
-        $_SESSION['failed'] = "Password and confirm password do not match";
-        header("location:" . siteurl . 'extend/signup.php');
     }
-} 
-?>
-
-
-
+    ?>
   
-      <?php include "appscript.php"?>
-      <script src="validation.js"></script>
-    </body>
-  </html>
+    <?php include "appscript.php"?>
+    <script src="validation.js"></script>
+</body>
+</html>

@@ -106,26 +106,30 @@
         $mail = $_POST['mail'];
         $password = $_POST['pass'];
 
-        $sql = "SELECT * FROM users WHERE email='$mail' AND password='$password'";
-
+        // Retrieve the hashed password from the database
+        $sql = "SELECT password FROM users WHERE email='$mail'";
         $res = mysqli_query($conn, $sql);
 
-        $count = mysqli_num_rows($res);
+        if ($res && mysqli_num_rows($res) == 1) {
+            $row = mysqli_fetch_assoc($res);
+            $hashedPass = $row['password'];
 
-        if($count==1){
-            $_SESSION['ulogin']="Logged in Sucessfully";
-            $_SESSION['umail']= $mail;
-            header('location:'.siteurl.'index.php');
-
-        }
-        else{
-            $_SESSION['ulogin']="Username or Password didnot match";
+            // Verify the entered password with the hashed password
+            if (password_verify($password, $hashedPass)) {
+                $_SESSION['ulogin'] = "Logged in Successfully";
+                $_SESSION['umail'] = $mail;
+                header('location:'.siteurl.'index.php');
+            } else {
+                $_SESSION['ulogin'] = "Username or Password did not match";
+                header('location:'.siteurl.'extend/login.php');
+            }
+        } else {
+            $_SESSION['ulogin'] = "Username or Password did not match";
             header('location:'.siteurl.'extend/login.php');
-
         }
-        
     }
-?>
-<?php include "appscript.php"?>
+    ?>
+
+    <?php include "appscript.php"?>
 </body>
-  </html>
+</html>

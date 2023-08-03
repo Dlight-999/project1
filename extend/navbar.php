@@ -8,7 +8,7 @@
   <script src="https://kit.fontawesome.com/76ac8447a7.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style/style.css">
 
-  <title>index</title>
+  <title>Adventure Pokhara</title>
 </head>
 <body>
 
