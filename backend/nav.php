@@ -72,7 +72,7 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#" target="_blank">
+            <a href="booking.php">
               <span class="material-icons-outlined">shopping_cart</span> Orders
             </a>
           </li>

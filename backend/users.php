@@ -8,6 +8,7 @@
                   <th>ID</th>
                   <th>UserName</th>
                   <th>Email</th>
+                  <th>Phone</th>
                 </tr>
               </thead>
               <tbody>
@@ -27,16 +28,15 @@
         $username= $rows['username'];
         $email = $rows ['email'];
         $user_id = $rows['user_id'];
+        $phone = $rows['phone'];
+
 
         ?>
         <tr>
         <td><?php echo $sn++ ?></td>
         <td><?php echo $username ?></td>
         <td><?php echo $email ?></td>
-        <td><a href="<?php echo siteurl;?>backend/delete-user.php?user=<?php echo $$user_id;?>" class="btn-secondary"> Delete User</a>
-        <a href="<?php echo siteurl;?>backend/update-user.php?user=<?php echo $$user_id;?>" class="btn-primary">Upadte User</a>
-        </td>
-        
+        <td><?php echo $phone ?></td>
       </tr>
         <?php
       }
