@@ -17,9 +17,9 @@
         <div class="logo"><h1>Adventure Pokhara</h1></div>
         <div class="openMenu"><i class="fa-sharp fa-solid fa-bars"></i></div>
         <ul class="mainMenu">
-            <li><a href="../index.php">Home</a></li>
-            <li><a href="./service.php">Our Services</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="http://localhost/Project1/index.php">Home</a></li>
+            <li><a href="http://localhost/Project1/service.php">Our Services</a></li>
+            <li><a href="http://localhost/Project1">About Us</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Account</a>
                 <div class="dropdown-content">
@@ -27,13 +27,13 @@
                 <?php
                              if(isset($_SESSION['ulogin'])){
                               $mail = $_SESSION['umail'];
-                                echo "<a href='./extend/profile.php?mail=$mail'>Edit Profile</a>";
-                                echo"<a href='./extend/changepwd.php?mail=$mail'>Change Password</a>";
-                                echo "<a href='./extend/history.php?mail=$mail'>Booking History</a> ";
-                                echo "<a href='./extend/ulogout.php'>Logout</a> ";
+                                echo "<a href='http://localhost/Project1/extend/profile.php?mail=$mail'>Edit Profile</a>";
+                                echo"<a href='http://localhost/Project1/extend/changepwd.php?mail=$mail'>Change Password</a>";
+                                echo "<a href='http://localhost/Project1/extend/history.php?mail=$mail'>Booking History</a> ";
+                                echo "<a href='http://localhost/Project1/extend/ulogout.php'>Logout</a> ";
                               }
                               else{
-                                echo "<a href='./extend/login.php'>Login</a>";
+                                echo "<a href='http://localhost/Project1/extend/login.php'>Login</a>";
                               }
                 ?>
                 

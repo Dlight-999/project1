@@ -3,10 +3,26 @@
 <div class="table-container">
   <a href="add-admins.php">Add Admins</a>
 <?php 
-  if(isset($_GET['mail'])){
-    $mail = $_GET['mail'];
-} 
-
+      if(isset($_SESSION['add'])){
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
+      }
+      if(isset($_SESSION['update'])){
+        echo $_SESSION['update'];
+        unset($_SESSION['update']);
+      }
+      if(isset($_SESSION['delete'])){
+        echo $_SESSION['delete'];
+        unset($_SESSION['delete']);
+      }
+      if(isset($_SESSION['user-not-found'])){
+        echo $_SESSION['user-not-found'];
+        unset($_SESSION['user-not-found']);
+      }
+      if(isset($_SESSION['change'])){
+        echo $_SESSION['change'];
+        unset($_SESSION['change']);
+      }
       ?>
             <input type="text" id="searchInput" placeholder="Search...">
             <table id="dataTable">

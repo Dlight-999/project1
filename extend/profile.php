@@ -1,11 +1,14 @@
-<?php include "../extend/navbar.php" ?>
 <?php include '../config/constants.php'?>
+<?php include "../extend/navbar.php" ?>
+
 <link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="../style/admin.css">
+<link rel="stylesheet" href="../style/add.css">
+
 <style>
 
 .main-container{
-    height: 250px;
+    height: 50%;
 }
 </style>
 
