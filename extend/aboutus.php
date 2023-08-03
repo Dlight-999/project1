@@ -1,7 +1,7 @@
 
 <div class="heading">
   <h1>About Us</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, veritatis architecto? Temporibus vero perspiciatis vitae? Autem perferendis optio, molestiae ratione itaque cum est dolorem officia repudiandae dicta temporibus illo a.</p>
+<p>Welcome to Adventure Sport Booking, your gateway to thrilling experiences in the enchanting city of Pokhara! Nestled in the heart of Nepal, Pokhara is a paradise for adventure enthusiasts and nature lovers alike. At Adventure Sport Booking, we are dedicated to providing you with the most exhilarating and unforgettable adventures that this breathtaking region has to offer.</p>
 
 <div class="container">
    <section class="about">
@@ -10,7 +10,9 @@
       </div>
       <div class="about-content">
        <h2>Adventure is waiting for you</h2>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque maiores, laborum voluptatibus molestiae accusantium deleniti rem dolorem voluptas reiciendis odit tempore quas voluptate possimus aliquid officia quo animi dicta laboriosam!</p>
+       <p>From soaring above the Annapurna mountains in a paraglider to navigating the exhilarating rapids of the Seti River in a thrilling rafting expedition, Adventure Sport Booking offers an extensive range of activities to suit every adventure seeker's desire. Trek through lush forests, bask in the glory of majestic waterfalls, and immerse yourself in the local culture as you embark on a journey of a lifetime.
+
+</p>
        <a href="" class="read-more">Read More</a>
 
       </div>

@@ -116,6 +116,9 @@
       input[type=email]{
         color: white;
       }
+      input[type=number]{
+        color: white;
+      }
       input[type=password]{
         color: white;
       }

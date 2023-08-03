@@ -2,7 +2,7 @@
     <div class="containerf">
       <div class="row">
         <div class="footer-col">
-          <h4>Logo</h4>
+          <h4>Adventure Pokhara</h4>
           <ul>
             <li><a href="#">about us</a></li>
             <li><a href="#">our services</a></li>
@@ -15,7 +15,6 @@
           <ul>
             <li><a href="#">Contact Us</a></li>
 
-            <li><a href="#">payment options</a></li>
           </ul>
         </div>
         <div class="footer-col">

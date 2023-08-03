@@ -48,7 +48,12 @@ if (isset($_GET['mail'])) {
                     <div class="bf-row">
                         <div class="bf-col-6">
                             <p>Select date</p>
-                            <input type="date" name="date" id="date">
+                            <!-- Set the minimum date for the input field -->
+                            <?php
+                            // Minimum date for the date input field (tomorrow's date)
+                            $minimumDate = date('Y-m-d', strtotime('+1 day'));
+                            ?>
+                            <input type="date" name="date" id="date" min="<?php echo $minimumDate; ?>">
                         </div>
 
                         <div class="bf-col-6">
@@ -85,14 +90,14 @@ if (isset($_GET['mail'])) {
                     <div class="bf-col-12">
                         <input type="submit" value="Submit" name="submit">
                     </div>
-                    </div>
-                    <div class="bf-row">
-                    <div class="bf-col-12">
-                    <a href="./index.php" class="cancel">
-                        <input type="button" value="Cancel" name="cancel">
-                    </a>
                 </div>
+                <div class="bf-row">
+                    <div class="bf-col-12">
+                        <a href="./index.php" class="cancel">
+                            <input type="button" value="Cancel" name="cancel">
+                        </a>
                     </div>
+                </div>
             </form>
 
             <div class="bf-footer">
@@ -112,29 +117,36 @@ if (isset($_POST['submit'])) {
     $activity = $_POST['s-select'];
     $message = $_POST['Message'];
 
-    // Fetch activity details from the activities table
-    $sql_activity = "SELECT activity_name, price FROM activities WHERE activity_id = $activity";
-    $result_activity = mysqli_query($conn, $sql_activity);
-    if ($result_activity && mysqli_num_rows($result_activity) == 1) {
-        $row_activity = mysqli_fetch_assoc($result_activity);
-       $activity_name = $row_activity['activity_name'];
-        $price = $row_activity['price'];
+    // Validate the date before processing the form submission
+    $selectedDate = $_POST['date'];
+    $currentDate = date('Y-m-d');
 
-        // Insert data into the booking table
-        $sql_booking = "INSERT INTO booking (u_name, booking_date, u_email, u_phone, u_activity, u_price, Message)
+    if (strtotime($selectedDate) < strtotime($currentDate)) {
+        $_SESSION['book'] = "Invalid date. Please select a date from tomorrow onwards.";
+    } else {
+        // Fetch activity details from the activities table
+        $sql_activity = "SELECT activity_name, price FROM activities WHERE activity_id = $activity";
+        $result_activity = mysqli_query($conn, $sql_activity);
+        if ($result_activity && mysqli_num_rows($result_activity) == 1) {
+            $row_activity = mysqli_fetch_assoc($result_activity);
+            $activity_name = $row_activity['activity_name'];
+            $price = $row_activity['price'];
+
+            // Insert data into the booking table
+            $sql_booking = "INSERT INTO booking (u_name, booking_date, u_email, u_phone, u_activity, u_price, Message)
                VALUES ('$fname', '$date', '$email', '$phone', '$activity_name','$price', '$message')";
 
+            // Execute the insert query
+            $res_booking = mysqli_query($conn, $sql_booking);
 
-        // Execute the insert query
-        $res_booking = mysqli_query($conn, $sql_booking);
-
-        if ($res_booking) {
-            $_SESSION['book'] = "booked";
+            if ($res_booking) {
+                $_SESSION['book'] = "booked";
+            } else {
+                $_SESSION['book'] = "Failed to book";
+            }
         } else {
-            $_SESSION['book'] = "Failed to book";
+            $_SESSION['book'] = "Activity not found";
         }
-    } else {
-        $_SESSION['book'] = "Activity not found";
     }
 }
 ?>
