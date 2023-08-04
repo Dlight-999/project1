@@ -6,7 +6,7 @@
 <style>
 
 .main-container{
-    height: 50%;
+    height: 70%;
 }
 </style>
 <?php

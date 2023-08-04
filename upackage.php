@@ -1,5 +1,6 @@
 <div class="break"></div>
 <?php 
+$mail = '';
 if(isset($_SESSION['umail'])){
   $mail = $_SESSION['umail'];
 

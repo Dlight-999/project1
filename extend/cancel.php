@@ -24,7 +24,7 @@ if (isset($_GET['mail']) && isset($_GET['id'])) {
         <script>
             var confirmed = confirm('Are you sure you want to cancel this booking?');
             if (confirmed) {
-                window.location.href = 'cancel-booking.php?mail=$mail&id=$id&confirm=true';
+                window.location.href = 'cancel.php?mail=$mail&id=$id&confirm=true';
             } else {
                 window.location.href = 'history.php?mail=$mail';
             }

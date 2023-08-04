@@ -2,7 +2,7 @@
 include ('config/constants.php');
 include ('extend/check.php');
 
-$mail = $_GET['mail'];
+
 if (isset($_GET['mail'])) {
     $mail = $_GET['mail'];
 
@@ -59,23 +59,31 @@ if (isset($_GET['mail'])) {
                         <div class="bf-col-6">
                             <p>Select Package</p>
                             <select name="s-select">
-                                <?php
-                                $sql = "SELECT * FROM activities";
-                                $result = mysqli_query($conn, $sql);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $activity_id = $row['activity_id'];
-                                    $activity_name = $row['activity_name'];
-                                    $price = $row['price'];
-                                    echo "<option value='$activity_id'>$activity_name - Price: $price</option>";
-                                }
-                                ?>
-                            </select>
+    <?php
+    $sql = "SELECT * FROM activities";
+    $result = mysqli_query($conn, $sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $activity_id = $row['activity_id'];
+        $activity_name = $row['activity_name'];
+        $price = $row['price'];
+
+        // Check if the current activity_id matches the one from $_GET['activity_id']
+        $selected = '';
+        if (isset($_GET['activity_id']) && $activity_id == $_GET['activity_id']) {
+            $selected = 'selected';
+        }
+
+        echo "<option value='$activity_id' $selected>$activity_name - Price: $price</option>";
+    }
+    ?>
+</select>
+
                         </div>
                     </div>
                     <div class="bf-row">
                         <div class="bf-col-12">
                             <p>Enter Phone Number</p>
-                            <input type="number" name="phone" id="phone" size="10">
+                            <input type="number" name="phone" id="phone" value= "<?php echo $phone?>"size="10">
                         </div>
                     </div>
                 </div>
@@ -125,7 +133,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['book'] = "Invalid date. Please select a date from tomorrow onwards.";
     } else {
         // Fetch activity details from the activities table
-        $sql_activity = "SELECT activity_name, price FROM activities WHERE activity_id = $activity";
+        $sql_activity = "SELECT activity_name, price FROM activities WHERE activity_id = $activity_id";
         $result_activity = mysqli_query($conn, $sql_activity);
         if ($result_activity && mysqli_num_rows($result_activity) == 1) {
             $row_activity = mysqli_fetch_assoc($result_activity);
@@ -133,8 +141,8 @@ if (isset($_POST['submit'])) {
             $price = $row_activity['price'];
 
             // Insert data into the booking table
-            $sql_booking = "INSERT INTO booking (u_name, booking_date, u_email, u_phone, u_activity, u_price, Message)
-               VALUES ('$fname', '$date', '$email', '$phone', '$activity_name','$price', '$message')";
+            $sql_booking = "INSERT INTO booking (u_name, booking_date, u_email, u_phone, u_activity, u_price, Message,status)
+               VALUES ('$fname', '$date', '$email', '$phone', '$activity_name','$price', '$message','Active')";
 
             // Execute the insert query
             $res_booking = mysqli_query($conn, $sql_booking);
