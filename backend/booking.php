@@ -76,6 +76,7 @@ $sql = "SELECT * FROM booking ";
             <td><?php echo $status;?></td>
         
         <td><a href="<?php echo siteurl;?>backend/cancelbook.php?id=<?php echo $id;?>" class="btn-secondary">Cancel</a>
+        <a href="<?php echo siteurl;?>backend/pending.php?id=<?php echo $id;?>" class="btn-secondary">Pending</a>
         <a href="<?php echo siteurl;?>backend/deletebook.php?id=<?php echo $id;?>" class="btn-secondary">Delete</a>
         </td>
         
